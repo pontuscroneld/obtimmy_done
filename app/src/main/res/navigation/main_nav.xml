@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.obtimmy.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startToShifts"
+            app:destination="@id/shiftsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shiftsFragment"
+        android:name="com.example.obtimmy.ShiftsFragment"
+        android:label="fragment_shifts"
+        tools:layout="@layout/fragment_shifts_2" >
+        <action
+            android:id="@+id/action_shiftsToFinal"
+            app:destination="@id/finalFragment" />
+        <action
+            android:id="@+id/action_reset_app"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalFragment"
+        android:name="com.example.obtimmy.FinalFragment"
+        android:label="fragment_final"
+        tools:layout="@layout/fragment_final" >
+        <action
+            android:id="@+id/actionFinalBack"
+            app:destination="@id/shiftsFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">obtimmy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_to_timmy">VÄLKOMMEN TILL OB-TIMMY</string>
+    <string name="areYou">ÄR DU ANSTÄLLD INOM HANDELS ELLER RESTAURANG?</string>
+    <string name="changeable">Detta styr dina OB-tillägg och går att ändra i efterhand.</string>
+</resources>
