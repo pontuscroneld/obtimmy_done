@@ -121,6 +121,8 @@ class DatabaseModel(ctx: Context)
             // Vardag
             if (weekday == dayType.notHoliday) {
                 val cal = Calendar.getInstance()
+                cal.set(Calendar.YEAR, currentYear)
+                cal.set(Calendar.MONTH, currentMonth)
                 cal.set(Calendar.DAY_OF_MONTH, currentDay)
                 cal.set(Calendar.HOUR_OF_DAY, 18)
                 cal.set(Calendar.MINUTE, 15)
@@ -154,13 +156,18 @@ class DatabaseModel(ctx: Context)
         }
 
         fun getOBHoursRest(): Double {
-            val cal = Calendar.getInstance()
-            cal.time.time = startTime!!
-            val currentDay = cal[Calendar.DAY_OF_MONTH]
 
+            val cal = Calendar.getInstance()
+            cal.timeInMillis = startTime!!
+
+            val currentYear = cal[Calendar.YEAR]
+            val currentMonth = cal[Calendar.MONTH]
+            val currentDay = cal[Calendar.DAY_OF_MONTH]
 
             if (weekday == dayType.notHoliday) {
                 val cal = Calendar.getInstance()
+                cal.set(Calendar.YEAR, currentYear)
+                cal.set(Calendar.MONTH, currentMonth)
                 cal.set(Calendar.DAY_OF_MONTH, currentDay)
                 cal.set(Calendar.HOUR_OF_DAY, 20)
                 cal.set(Calendar.MINUTE, 0)
@@ -184,6 +191,8 @@ class DatabaseModel(ctx: Context)
             if (weekday == dayType.holidayEve) {
 
                 val cal = Calendar.getInstance()
+                cal.set(Calendar.YEAR, currentYear)
+                cal.set(Calendar.MONTH, currentMonth)
                 cal.set(Calendar.DAY_OF_MONTH, currentDay)
                 cal.set(Calendar.HOUR_OF_DAY, 16)
                 cal.set(Calendar.MINUTE, 0)
@@ -215,6 +224,8 @@ class DatabaseModel(ctx: Context)
             if (weekday == dayType.holidayDay) {
 
                 val cal = Calendar.getInstance()
+                cal.set(Calendar.YEAR, currentYear)
+                cal.set(Calendar.MONTH, currentMonth)
                 cal.set(Calendar.DAY_OF_MONTH, currentDay)
                 cal.set(Calendar.HOUR_OF_DAY, 6)
                 cal.set(Calendar.MINUTE, 0)

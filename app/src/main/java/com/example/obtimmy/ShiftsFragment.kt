@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
@@ -29,15 +30,6 @@ class ShiftsFragment : Fragment(), TimePickerDialog.OnTimeSetListener, DatePicke
     lateinit var sharedPreferences: SharedPreferences
     lateinit var handelsSharedPref: SharedPreferences
 
-
-    var x1 : Float = 0.0f
-    var x2 : Float = 0.0f
-    var y1 : Float = 0.0f
-    var y2 : Float = 0.0f
-
-    companion object {
-        const val MIN_DISTANCE = 150
-    }
 
     var sliderValue = 0
 
@@ -146,6 +138,7 @@ class ShiftsFragment : Fragment(), TimePickerDialog.OnTimeSetListener, DatePicke
             isStartTime = true
             shiftsModel.getTimeDateCalender()
             var startDP = DatePickerDialog(requireContext())
+            startDP.datePicker.firstDayOfWeek = 2
             startDP.setOnDateSetListener { view, year, month, dayOfMonth ->
 
                 shiftsModel.setStartDate(dayOfMonth, month, year)
@@ -228,7 +221,9 @@ class ShiftsFragment : Fragment(), TimePickerDialog.OnTimeSetListener, DatePicke
             putBoolean("SwitchBool", true)
         }.apply()
 
-        Toast.makeText(this.getActivity(), "Timlön sparad", Toast.LENGTH_SHORT).show()
+
+
+        Toast.makeText(this.getActivity(), "Timlön sparad", Toast.LENGTH_LONG).show()
     }
 
     fun loadWageData() : Int {

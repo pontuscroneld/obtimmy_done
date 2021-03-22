@@ -33,6 +33,7 @@
         tools:layout="@layout/fragment_final" >
         <action
             android:id="@+id/actionFinalBack"
-            app:destination="@id/shiftsFragment" />
+            app:destination="@id/shiftsFragment"
+            app:popUpTo="@id/startFragment" />
     </fragment>
 </navigation>

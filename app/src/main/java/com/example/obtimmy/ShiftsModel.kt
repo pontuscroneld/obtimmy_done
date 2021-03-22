@@ -82,6 +82,8 @@ class ShiftsModel(app: Application) : AndroidViewModel(app), CoroutineScope by M
         cal.set(Calendar.MILLISECOND, 0)
         startStamp = cal.timeInMillis
 
+
+        Log.d("timmydebug", "Startmonth picked: " + startMonth.toString())
     }
 
     fun setEndTime(setMinute: Int, setHour: Int) {
@@ -98,6 +100,8 @@ class ShiftsModel(app: Application) : AndroidViewModel(app), CoroutineScope by M
         cal.set(Calendar.SECOND, 0)
         cal.set(Calendar.MILLISECOND, 0)
         endStamp = cal.timeInMillis
+
+        Log.d("timmydebug", "Endmonth picked: " + startMonth.toString())
 
         val simpleDateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm")
         val dateString = simpleDateFormat.format(endStamp)
@@ -391,17 +395,24 @@ class ShiftsModel(app: Application) : AndroidViewModel(app), CoroutineScope by M
             }
             newShift.date = dateString
             newShift.readableTime = newShift.getReadableTimePeriod(
-                startMonth,
+                startMonth + 1,
                 startDay,
                 startHour,
                 startMinute,
                 endHour,
                 endMinute
+
+
+
             )
 
 
             database.shiftDB.ShiftDao().insertAll(newShift)
             Log.d("timmydebug", newShift.toString())
+            Log.d("timmydebug", "startday: " + startDay.toString())
+            Log.d("timmydebug", "Startmonth: " + startMonth.toString())
+            Log.d("timmydebug", "Starthour: " + startHour.toString())
+            Log.d("timmydebug", "startminute: " + startMinute.toString())
             getAllShifts()
         }
     }
