@@ -38,25 +38,9 @@ class DatabaseModel(ctx: Context)
         fun getShiftEarnings(hourlyWage: Double): Double? {
 
             var workedTime = shiftDuration?.minus(breakTime!!)
-
             var newMinuteWage = hourlyWage.toDouble() / 60
             var newEarnings = (workedTime?.times(newMinuteWage))
-/*
-            var diffTime = (endTime!! - startTime!!) / 1000
-            diffTime -= breakTime!!
-            // Diff time är tiden man jobbar i sekunder
 
-            var diffTimeInMinutes = diffTime / 60
-            val diffTimeInHours = diffTime / 3600
-            val minutesMinusHours = diffTimeInMinutes - (diffTimeInHours * 60)
-
-            Log.d("timmydebug", "Timmar: " + diffTimeInHours + " Minuter: " + minutesMinusHours)
-
-            var minuteWage = hourlyWage.toDouble() / 60
-            var earnings = (diffTimeInHours * hourlyWage) + (minutesMinusHours * minuteWage)
-
-            Log.d("timmydebug", "Timlön för " + diffTimeInHours + " timmar + " + minutesMinusHours + " minuter blir " + earnings + "kr")
-*/
             return newEarnings
         }
 
